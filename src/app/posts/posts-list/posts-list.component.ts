@@ -14,6 +14,11 @@ export class PostsListComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    this.posts$ = this.postService.getAll();
+    //ahora se obtiene la data directamente de las entidades
+    //cada vez que naveguemos a otro vista y volvamos no se hara
+    //otra llamada a la api
+    this.posts$ = this.postService.entities$;
+    //SIN RESOLVER
+    // this.posts$ = this.postService.getAll();
   }
 }

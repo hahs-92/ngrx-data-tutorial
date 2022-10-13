@@ -22,6 +22,7 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { PostsDataService } from './posts/services/posts-data.service';
+import { PostsResolver } from './posts/posts.resolver';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { PostsDataService } from './posts/services/posts-data.service';
       logOnly: environment.production,
     }),
   ],
-  providers: [PostsDataService], //ngData-service
+  providers: [PostsDataService, PostsResolver], //ngData-service
   bootstrap: [AppComponent],
 })
 export class AppModule {
