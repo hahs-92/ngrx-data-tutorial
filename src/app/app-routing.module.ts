@@ -24,10 +24,12 @@ const routes: Routes = [
   {
     path: 'posts/edit/:id',
     component: EditPostComponent,
+    resolve: { posts: PostsResolver },
   },
   {
     path: 'posts/details/:id',
     component: SinglePostComponent,
+    resolve: { posts: PostsResolver }, //para que cuando refresque la pagina
   },
 ];
 
