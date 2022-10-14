@@ -8,10 +8,10 @@ import {
 
 import { Post } from '../../models/post.model';
 
-export const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: 'https://vue-completecourse.firebaseio.com/posts.json',
-  timeout: 3000,
-};
+// export const defaultDataServiceConfig: DefaultDataServiceConfig = {
+//   root: 'https://vue-completecourse.firebaseio.com/posts.json',
+//   timeout: 3000,
+// };
 
 @Injectable({
   providedIn: 'root',
