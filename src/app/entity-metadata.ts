@@ -1,5 +1,7 @@
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
 
+//cuando se modularizo la app
+// ya no se utiliza
 const entityMetadata: EntityMetadataMap = {
   Post: {
     //podemos agregar opciones de optimizacion

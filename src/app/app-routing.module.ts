@@ -14,22 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'posts',
-    component: PostsListComponent,
-    resolve: { posts: PostsResolver },
-  },
-  {
-    path: 'posts/add',
-    component: AddPostComponent,
-  },
-  {
-    path: 'posts/edit/:id',
-    component: EditPostComponent,
-    resolve: { posts: PostsResolver },
-  },
-  {
-    path: 'posts/details/:id',
-    component: SinglePostComponent,
-    resolve: { posts: PostsResolver }, //para que cuando refresque la pagina
+    loadChildren: () =>
+      import('./posts/posts.module').then((m) => m.PostsModule),
   },
 ];
 

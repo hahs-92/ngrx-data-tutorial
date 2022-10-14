@@ -28,10 +28,10 @@ import { PostsResolver } from './posts/posts.resolver';
 @NgModule({
   declarations: [
     AppComponent,
-    PostsListComponent,
-    SinglePostComponent,
-    EditPostComponent,
-    AddPostComponent,
+    // PostsListComponent,
+    // SinglePostComponent,
+    // EditPostComponent,
+    // AddPostComponent,
     HomeComponent,
   ],
   imports: [
@@ -41,22 +41,29 @@ import { PostsResolver } from './posts/posts.resolver';
     ReactiveFormsModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig), //debe ir despues de store y effects
+
+    // EntityDataModule.forRoot(entityConfig), //debe ir despues de store y effects
+    EntityDataModule.forRoot({}), //CUANDO SE TRATABA CON MODULOS (posts)
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
   ],
-  providers: [PostsDataService, PostsResolver], //ngData-service
+  providers: [
+    //ahora esta en el modulo de posts
+    //PostsDataService,
+    // PostsResolver
+  ], //ngData-service
   bootstrap: [AppComponent],
 })
 export class AppModule {
   //ng-data
   //registrar el servicio
-  constructor(
-    entityDataService: EntityDataService,
-    postsDataService: PostsDataService
-  ) {
-    entityDataService.registerService('Post', postsDataService);
-  }
+  // CUANDO SE CREO EL MODULO DE POST SE MODIFICO ESTO
+  // constructor(
+  //   entityDataService: EntityDataService,
+  //   postsDataService: PostsDataService
+  // ) {
+  //   entityDataService.registerService('Post', postsDataService);
+  // }
 }
