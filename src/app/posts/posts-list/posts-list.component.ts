@@ -21,4 +21,8 @@ export class PostsListComponent implements OnInit {
     //SIN RESOLVER
     // this.posts$ = this.postService.getAll();
   }
+
+  onDeletePost(ev: any, postId: string) {
+    console.log(ev);
+  }
 }

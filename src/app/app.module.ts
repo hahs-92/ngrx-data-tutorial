@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //dependencias necesarias para ngrx-data
 import {
@@ -37,6 +38,7 @@ import { PostsResolver } from './posts/posts.resolver';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig), //debe ir despues de store y effects

@@ -20,7 +20,7 @@ export class PostsResolver implements Resolve<boolean> {
     return this.postService.loaded$.pipe(
       tap((loaded) => {
         if (!loaded) {
-          //internamente lansa una accion
+          //internamente lanza una accion
           //y se encarga de actualizar el estado por nosotros
           this.postService.getAll();
         }
