@@ -22,7 +22,8 @@ export class PostsListComponent implements OnInit {
     // this.posts$ = this.postService.getAll();
   }
 
-  onDeletePost(ev: any, postId: string) {
-    console.log(ev);
+  onDeletePost(ev: Event, postId: string) {
+    ev.preventDefault();
+    if (confirm('Are you sure?')) this.postService.delete(postId);
   }
 }

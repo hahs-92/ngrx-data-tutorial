@@ -3,6 +3,7 @@ import { DefaultDataService, HttpUrlGenerator } from '@ngrx/data';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Post } from '../../models/post.model';
+import { Update } from '@ngrx/entity';
 
 @Injectable()
 export class PostsDataService extends DefaultDataService<Post> {
@@ -35,5 +36,20 @@ export class PostsDataService extends DefaultDataService<Post> {
           return { ...post, id: data.name };
         })
       );
+  }
+
+  override update(post: Update<Post>): Observable<Post> {
+    return this.http.put<Post>(
+      `https://vue-completecourse.firebaseio.com/posts/${post.id}.json`,
+      { ...post.changes }
+    );
+  }
+
+  override delete(postId: string): Observable<string> {
+    return this.http
+      .delete<Post>(
+        `https://vue-completecourse.firebaseio.com/posts/${postId}.json`
+      )
+      .pipe(map((data) => postId));
   }
 }
